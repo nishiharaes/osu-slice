@@ -5,6 +5,7 @@ namespace WpfApp1;
 
 public class FileParser
 {
+    
     public static string GetOsuDir()
     {
         
@@ -55,4 +56,6 @@ public class FileParser
             Console.WriteLine(msg);
         }
     }
+    
+    
 }

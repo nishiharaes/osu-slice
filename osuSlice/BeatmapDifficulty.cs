@@ -5,13 +5,13 @@ public class BeatmapDifficulty
     private string Version;
     private string AudioFile;
     private string backgroundFile;
-    private int cs;
-    private int od;
-    private int ar;
-    private int hp;
+    private float cs;
+    private float od;
+    private float ar;
+    private float hp;
     private string filePath;
 
-    public BeatmapDifficulty(string ver, string aFile, string bgFile, int cs, int od, int ar, int hp, string fPath)
+    public BeatmapDifficulty(string ver, string aFile, string bgFile, float cs, float od, float ar, float hp, string fPath)
     {
         this.Version = ver;
         this.AudioFile = aFile;

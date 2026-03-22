@@ -23,6 +23,7 @@ public class OsuParser
                 objects.Add(line);
             }
         }
+
         FileParser.DebugMessage("HitObjects successfully parsed", "info");
         return objects;
     }
@@ -84,19 +85,99 @@ public class OsuParser
                     break;
             }
         }
-        
+
         int hitIndex = lines.FindIndex(line => line.StartsWith("[HitObjects]"));
         if (hitIndex == -1)
             return;
 
         var output = new List<string>();
-        
+
         output.AddRange(lines.Take(hitIndex + 1));
 
         output.AddRange(hitObjects);
 
         File.WriteAllLines(newPath, output);
-        
+
         FileParser.DebugMessage($"Created new difficulty: {newDiffName}", "info");
+    }
+
+    public static float GetHealthDrain(string filePath)
+    {
+        var lines = File.ReadAllLines(filePath);
+
+        foreach (var line in lines)
+        {
+            if (line.Contains("HPDrainRate"))
+            {
+                // Split on ':' and parse the number
+                var parts = line.Split(':');
+                if (parts.Length > 1 && float.TryParse(parts[1].Trim(), out float settingVal))
+                {
+                    return settingVal;
+                }
+            }
+        }
+
+        return 0f;
+    }
+    
+    public static float GetCircleSize(string filePath)
+    {
+        var lines = File.ReadAllLines(filePath);
+
+        foreach (var line in lines)
+        {
+            if (line.Contains("CircleSize"))
+            {
+                // Split on ':' and parse the number
+                var parts = line.Split(':');
+                if (parts.Length > 1 && float.TryParse(parts[1].Trim(), out float settingVal))
+                {
+                    return settingVal;
+                }
+            }
+        }
+
+        return 0f;
+    }
+    
+    public static float GetOverallDifficulty(string filePath)
+    {
+        var lines = File.ReadAllLines(filePath);
+
+        foreach (var line in lines)
+        {
+            if (line.Contains("OverallDifficulty"))
+            {
+                // Split on ':' and parse the number
+                var parts = line.Split(':');
+                if (parts.Length > 1 && float.TryParse(parts[1].Trim(), out float settingVal))
+                {
+                    return settingVal;
+                }
+            }
+        }
+
+        return 0f;
+    }
+    
+    public static float GetApproachRate(string filePath)
+    {
+        var lines = File.ReadAllLines(filePath);
+
+        foreach (var line in lines)
+        {
+            if (line.Contains("ApproachRate"))
+            {
+                // Split on ':' and parse the number
+                var parts = line.Split(':');
+                if (parts.Length > 1 && float.TryParse(parts[1].Trim(), out float settingVal))
+                {
+                    return settingVal;
+                }
+            }
+        }
+
+        return 0f;
     }
 }
