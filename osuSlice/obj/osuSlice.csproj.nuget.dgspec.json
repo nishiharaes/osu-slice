@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\adnan\\RiderProjects\\WpfApp1\\osuSlice\\osuSlice.csproj": {}
+    "C:\\Users\\adnan\\RiderProjects\\osu-slice\\osuSlice\\osuSlice.csproj": {}
   },
   "projects": {
-    "C:\\Users\\adnan\\RiderProjects\\WpfApp1\\osuSlice\\osuSlice.csproj": {
+    "C:\\Users\\adnan\\RiderProjects\\osu-slice\\osuSlice\\osuSlice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\adnan\\RiderProjects\\WpfApp1\\osuSlice\\osuSlice.csproj",
+        "projectUniqueName": "C:\\Users\\adnan\\RiderProjects\\osu-slice\\osuSlice\\osuSlice.csproj",
         "projectName": "osuSlice",
-        "projectPath": "C:\\Users\\adnan\\RiderProjects\\WpfApp1\\osuSlice\\osuSlice.csproj",
+        "projectPath": "C:\\Users\\adnan\\RiderProjects\\osu-slice\\osuSlice\\osuSlice.csproj",
         "packagesPath": "C:\\Users\\adnan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\adnan\\RiderProjects\\WpfApp1\\osuSlice\\obj\\",
+        "outputPath": "C:\\Users\\adnan\\RiderProjects\\osu-slice\\osuSlice\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\adnan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\adnan\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -64,7 +62,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

@@ -20,11 +20,10 @@ public class OsuParser
 
             if (hitObject)
             {
-                Console.WriteLine("Added hit object: " + line);
                 objects.Add(line);
             }
         }
-        Console.WriteLine("All objects successfully parsed");
+        FileParser.DebugMessage("HitObjects successfully parsed", "info");
         return objects;
     }
 
@@ -46,13 +45,13 @@ public class OsuParser
             {
                 if (time >= startTime && time <= endTime)
                 {
-                    Console.WriteLine("HitObject " + line + "added to output between  " + startTime + " and " + endTime);
                     result.Add(line);
                 }
             }
         }
-        Console.WriteLine("All objects successfully parsed");
+
         return result;
+        FileParser.DebugMessage("All hitobjects within specified time range successfully parsed", "info");
     }
 
     public static void CreateNewDifficulty(
@@ -98,6 +97,6 @@ public class OsuParser
 
         File.WriteAllLines(newPath, output);
         
-        Console.WriteLine($"Created new difficulty: {newDiffName}");
+        FileParser.DebugMessage($"Created new difficulty: {newDiffName}", "info");
     }
 }
