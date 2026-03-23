@@ -6,6 +6,8 @@ public class Metadata
     public string Title { get; set; }
     public string Creator { get; set; }
     
+    public string Tags { get; set; }
+    
     
     
 }

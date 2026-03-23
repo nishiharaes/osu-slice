@@ -215,6 +215,9 @@ public class OsuParser
             if (line.StartsWith("Creator:"))
                 metadata.Creator = line.Substring("Creator:".Length);
 
+            if (line.StartsWith("Tags:"))
+                metadata.Tags = line.Substring("Tags:".Length);
+
             if (metadata.Artist != null && metadata.Title != null)
                 break;
         }
