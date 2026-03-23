@@ -16,6 +16,20 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+
+        var beatmaps = OsuParser.LoadBeatmaps("D:/osu!/Songs");
+
+        foreach (var sets in beatmaps)
+        {
+            Console.WriteLine($"{sets.Artist} - {sets.Title}");
+
+            foreach (var diff in sets.Difficulties)
+            {
+                Console.WriteLine($"   [{diff.Version}]");
+            }
+        }
+        
+        
     }
     
     

@@ -180,4 +180,81 @@ public class OsuParser
 
         return 0f;
     }
+
+    public static string GetDifficultyName(string filePath)
+    {
+        var lines = File.ReadAllLines(filePath);
+
+        foreach (var line in lines)
+        {
+            if (line.Contains("Version:"))
+            {
+                var parts = line.Split(':');
+                if (parts.Length > 1)
+                {
+                    return parts[1].Trim();
+                }
+            }
+        }
+        
+        return string.Empty;
+    }
+
+    public static Metadata GetMetadata(string filePath)
+    {
+        var metadata = new Metadata();
+        var lines = File.ReadAllLines(filePath);
+        foreach (var line in lines)
+        {
+            if (line.StartsWith("Artist:"))
+                metadata.Artist = line.Substring("Artist:".Length);
+
+            if (line.StartsWith("Title:"))
+                metadata.Title = line.Substring("Title:".Length);
+            
+            if (line.StartsWith("Creator:"))
+                metadata.Creator = line.Substring("Creator:".Length);
+
+            if (metadata.Artist != null && metadata.Title != null)
+                break;
+        }
+        
+        return metadata;
+    }
+
+    public static List<BeatmapSet> LoadBeatmaps(string path)
+    {
+        var folders = Directory.GetDirectories(path);
+        List<BeatmapSet> sets = new List<BeatmapSet>();
+
+        foreach (var folder in folders)
+        {
+            List<BeatmapDifficulty> difficulties = new List<BeatmapDifficulty>();
+            
+            var osuFiles = Directory.GetFiles(folder, "*.osu");
+            
+            if (osuFiles.Length == 0)
+                continue;
+            
+            var meta = GetMetadata(osuFiles[0]);
+
+            foreach (var file in osuFiles)
+            {
+                string version = GetDifficultyName(file);
+                float cs = GetCircleSize(file);
+                float od =  GetOverallDifficulty(file);
+                float ar = GetApproachRate(file);
+                float hp = GetHealthDrain(file);
+                var diff = new BeatmapDifficulty( version, cs, ar, od, hp, file);
+                difficulties.Add(diff);
+            }
+            
+            
+            BeatmapSet set = new BeatmapSet(folder, difficulties, meta.Artist, meta.Title);
+            
+            sets.Add(set);
+        }
+
+        return sets;
+    }
 }
