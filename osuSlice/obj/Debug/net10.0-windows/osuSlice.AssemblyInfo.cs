@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("osuSlice")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1bc15ea8fdf7c2362646116048cddb62f459f774")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+73548ff1499ae8f0670bf57ad7bcc4a4c5f7bd53")]
 [assembly: System.Reflection.AssemblyProductAttribute("osuSlice")]
 [assembly: System.Reflection.AssemblyTitleAttribute("osuSlice")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -8,14 +8,27 @@ public class FileParser
     
     public static string GetOsuDir()
     {
-        
-        var processes = Process.GetProcessesByName("osu!");
+        string dir = null;
 
-        if (processes.Length > 0)
+        while (dir == null)
         {
-            string dir = processes[0].Modules[0].FileName;
-            dir = dir.Remove(dir.LastIndexOf('\\'));
-            return dir;
+            try
+            {
+                var processes = Process.GetProcessesByName("osu!");
+
+                if (processes.Length > 0)
+                {
+                    dir = processes[0].Modules[0].FileName;
+                    dir = dir.Remove(dir.LastIndexOf('\\'));
+                    return dir;
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            
+            Thread.Sleep(1000);
         }
         return string.Empty;
     }
