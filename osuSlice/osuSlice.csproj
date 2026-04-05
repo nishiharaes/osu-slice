@@ -9,4 +9,9 @@
         <RootNamespace>WpfApp1</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <None Remove="Assets\Fonts\Torus Regular.otf" />
+      <Resource Include="Assets\Fonts\Torus Regular.otf" />
+    </ItemGroup>
+
 </Project>
